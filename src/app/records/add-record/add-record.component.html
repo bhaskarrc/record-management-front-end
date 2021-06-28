@@ -1,0 +1,26 @@
+<mat-card>
+  <form (submit)="onAddRecord(recordForm)" #recordForm="ngForm">
+    <mat-form-field>
+      <input matInput ngModel name="firstName" placeholder="First Name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput ngModel name="lastName" placeholder="Last Name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput ngModel name="aadharNumber" placeholder="Aadhar Number" required minlength="12" maxlength="12"
+        pattern="[0-9]*">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput ngModel name="mobileNumber" placeholder="Mobile Number" required minlength="10" maxlength="10"
+        pattern="[0-9]*">
+    </mat-form-field>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" type="submit">Add</button>
+      <button mat-raised-button color="accent" type="reset" (click)="toggleDuplicate(false)">Reset</button>
+      <button mat-raised-button color="warn" [disabled]="isDeleteDisabled" type="button"
+        (click)="onDeleteRecord()">Delete</button>
+    </div>
+  </form>
+  <p class="info-text mat-body-2" *ngIf="isDuplicate">Duplicate aadhar or mobile number</p>
+  <mat-progress-bar mode="indeterminate" *ngIf="enableProgressBar"></mat-progress-bar>
+</mat-card>

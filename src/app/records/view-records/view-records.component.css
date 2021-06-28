@@ -1,0 +1,10 @@
+table {
+  width: 50%;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.info-text {
+  margin-top: 40px;
+  text-align: center;
+}
